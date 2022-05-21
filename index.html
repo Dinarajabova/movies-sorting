@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies filtering</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://kit.fontawesome.com/1a052ad93a.js" crossorigin="anonymous"></script>
+  
+</head>
+
+<body>
+  <main>
+    <div class="container my-5">
+      <div class="d-flex justify-content-between">
+        <h1 class="h2">Movies</h1>
+
+        <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#add-parrot-modal">
+          <span class="me-2">Add Movie</span>
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-3">
+          <h2 class="h4 mb-4">Filter</h2>
+          <form action="#" class="filtering-form">
+            <div class="mb-3">
+              <label for="search" class="form-label">Search</label>
+              <input type="search" class="title-input form-control" id="search" placeholder="movie name">
+            </div>
+            <div class="mb-3">
+              <label for="search" class="form-label">Search by Rating</label>
+              <input type="search" class="rating-input form-control" id="search" placeholder="Rating">
+            </div>
+
+            <div class="mb-3">
+              <label for="sortby" class="form-label">Sort by Catigories</label>
+              <select class="catigories-select form-select">
+                <option selected disabled>Select a category</option>
+                <option>Uncategorized</option>
+                <option>Adventure</option>
+                <option">Animation</option>
+                <option>Comedy</option>
+                <option>Family</option>
+                <option>Fantasy</option>
+                <option>Sport</option>
+                <option>Drama</option>
+                <option>Horror</option>
+                <option>Documentary</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="sortby" class="form-label">Sort by</label>
+              <select class="sorting-select form-select">
+                <option>A-Z</option>
+                <option>Z-A</option>
+                <option>Rating: to highest</option>
+                <option>Rating: to lowest</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary d-block w-100 py-2">Filter</button>
+          </form>
+        </div>
+
+
+
+
+
+        <section class="col-9 wrapper" id="wrapper">
+          <div class="d-flex justify-content-between align-items-baseline">
+            <h2 class="h4 mb-4">Movies list</h2>
+          </div>
+
+          <ul class="row list-unstyled g-3 movies-list" id="product-list">
+
+            
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+
+  <template id="movie-template">
+    <li class="col-4 mb-3">
+      <div class="card" style="height: 500px; overflow: auto;">
+        <img class="movie-img"
+          src="https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABRCJpvCJcUVdeL7RmrMM5gfLcpNHJVPh-H3wIrIudVsuT66LtiAElQhYEU0Rz7KdYTX2IAHbQjaKmgICLv6aWaUtLCoD.jpg?r=73f">
+          <a href="" target="_blank" class="play">Tap to watch</a>
+        <div class="card-body">
+          <h3 class="card-title text-danger">Patton Oswalt: Annihilation</h3>
+          <p class="movie-year text-primary">2017</p>
+          <p class="movie-catigories text-primary">Uncategorized</p>
+          <p class="rating text-primary">7.5</p>
+          <p class="run-time text-primary">Run time: 66</p>
+          <p class="language text-primary">English</p>
+          <p class="summary">Patton Oswald, despite a personal tragedy, produces his best standup yet. Focusing
+            on the tribulations of the Trump era and life after the loss of a loved one, Patton Oswald continues
+            his journey to contribute joy to the world.</p>
+
+          <div class="position-absolute top-0 end-0 d-flex">
+            <!-- Agar isFavorite false bo'ladigan bo'lsa i'ning classi "fa-solid fa-star" bo'lishi kerak. Agar unday bo'lmasa "fa fa-star-o" -->
+            <button class="btn rounded-0 btn-secondary"><i class="fa-solid fa-pen"
+                style="pointer-events: none;"></i></button>
+            <button class="btn rounded-0 btn-danger"><i class="fa-solid fa-trash"
+                style="pointer-events: none;"></i></button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </template>
+
+  <script src="js/movies.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
