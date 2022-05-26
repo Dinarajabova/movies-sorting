@@ -40,27 +40,18 @@
             <div class="mb-3">
               <label for="sortby" class="form-label">Sort by Catigories</label>
               <select class="catigories-select form-select">
-                <option selected disabled>Select a category</option>
-                <option>Uncategorized</option>
-                <option>Adventure</option>
-                <option">Animation</option>
-                <option>Comedy</option>
-                <option>Family</option>
-                <option>Fantasy</option>
-                <option>Sport</option>
-                <option>Drama</option>
-                <option>Horror</option>
-                <option>Documentary</option>
+                <option>All</option>
+                
               </select>
             </div>
 
             <div class="mb-3">
               <label for="sortby" class="form-label">Sort by</label>
               <select class="sorting-select form-select">
-                <option>A-Z</option>
-                <option>Z-A</option>
-                <option>Rating: to highest</option>
-                <option>Rating: to lowest</option>
+                <option class="select-optionAZ" value="az">A-Z</option>
+                <option class="select-optionZA" value="za">Z-A</option>
+                <option class="select-option" value="to-highest">Rating: to highest</option>
+                <option class="select-option" value="to-lowest">Rating: to lowest</option>
               </select>
             </div>
 
@@ -88,7 +79,7 @@
 
 
   <template id="movie-template">
-    <li class="col-4 mb-3">
+    <li class="movies-item col-4 mb-3" title="">
       <div class="card" style="height: 500px; overflow: auto;">
         <img class="movie-img"
           src="https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABRCJpvCJcUVdeL7RmrMM5gfLcpNHJVPh-H3wIrIudVsuT66LtiAElQhYEU0Rz7KdYTX2IAHbQjaKmgICLv6aWaUtLCoD.jpg?r=73f">
@@ -105,7 +96,6 @@
             his journey to contribute joy to the world.</p>
 
           <div class="position-absolute top-0 end-0 d-flex">
-            <!-- Agar isFavorite false bo'ladigan bo'lsa i'ning classi "fa-solid fa-star" bo'lishi kerak. Agar unday bo'lmasa "fa fa-star-o" -->
             <button class="btn rounded-0 btn-secondary"><i class="fa-solid fa-pen"
                 style="pointer-events: none;"></i></button>
             <button class="btn rounded-0 btn-danger"><i class="fa-solid fa-trash"
