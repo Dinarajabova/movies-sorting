@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="https://kit.fontawesome.com/1a052ad93a.js" crossorigin="anonymous"></script>
-  
+
 </head>
 
 <body>
@@ -40,10 +40,9 @@
             <div class="mb-3">
               <label for="sortby" class="form-label">Sort by Catigories</label>
               <select class="catigories-select form-select">
-                <option>All</option>
-                
               </select>
             </div>
+
 
             <div class="mb-3">
               <label for="sortby" class="form-label">Sort by</label>
@@ -57,20 +56,31 @@
 
             <button class="btn btn-primary d-block w-100 py-2">Filter</button>
           </form>
+
+
+          <!--Bookmarked Movies  -->
+          <div class="border mt-5">
+            <h2 class="h4 mb-4 d-flex">Marked movies</h2>
+
+            <ul class="list-unstyled marked-movies-list">
+                           
+            </ul>
+          </div>
+
         </div>
 
 
 
 
 
-        <section class="col-9 wrapper" id="wrapper">
+        <section class="col-9 wrapper wrapper-ul" id="wrapper">
           <div class="d-flex justify-content-between align-items-baseline">
             <h2 class="h4 mb-4">Movies list</h2>
           </div>
 
           <ul class="row list-unstyled g-3 movies-list" id="product-list">
 
-            
+
           </ul>
         </section>
       </div>
@@ -78,34 +88,55 @@
   </main>
 
 
+  <!-- Modal -->
+  <div class="modal-movie modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="summary">Patton Oswald, despite a personal tragedy, produces his best standup yet. Focusing
+            on the tribulations of the Trump era and life after the loss of a loved one, Patton Oswald continues
+            his journey to contribute joy to the world.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <template id="movie-template">
     <li class="movies-item col-4 mb-3" title="">
       <div class="card" style="height: 500px; overflow: auto;">
         <img class="movie-img"
           src="https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABRCJpvCJcUVdeL7RmrMM5gfLcpNHJVPh-H3wIrIudVsuT66LtiAElQhYEU0Rz7KdYTX2IAHbQjaKmgICLv6aWaUtLCoD.jpg?r=73f">
-          <a href="" target="_blank" class="play">Tap to watch</a>
+        <!-- <a href="" target="_blank" class="play">Tap to watch</a> -->
         <div class="card-body">
           <h3 class="card-title text-danger">Patton Oswalt: Annihilation</h3>
           <p class="movie-year text-primary">2017</p>
           <p class="movie-catigories text-primary">Uncategorized</p>
           <p class="rating text-primary">7.5</p>
-          <p class="run-time text-primary">Run time: 66</p>
-          <p class="language text-primary">English</p>
-          <p class="summary">Patton Oswald, despite a personal tragedy, produces his best standup yet. Focusing
-            on the tribulations of the Trump era and life after the loss of a loved one, Patton Oswald continues
-            his journey to contribute joy to the world.</p>
+          <!-- <p class="run-time text-primary">Run time: 66</p> -->
+          <!-- <p class="language text-primary">English</p> -->
+          
 
-          <div class="position-absolute top-0 end-0 d-flex">
-            <button class="btn rounded-0 btn-secondary"><i class="fa-solid fa-pen"
-                style="pointer-events: none;"></i></button>
-            <button class="btn rounded-0 btn-danger"><i class="fa-solid fa-trash"
-                style="pointer-events: none;"></i></button>
+          <div class="">
+            <a href="" target="_blank" class="play btn btn-outline-success">Trailer</a>
+            <button type="button" class="btn btn-outline-secondary btn-more-info" data-bs-toggle="modal" data-bs-target="#exampleModal">More Info</button>
+            <button class="btn btn-outline-primary bookmark-btn"><i class="fa-solid fa-bookmark"
+                style="border: blue; pointer-events: none;"></i></button>
           </div>
+
         </div>
       </div>
     </li>
   </template>
 
+  <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/movies.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/main.js"></script>
