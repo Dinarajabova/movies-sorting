@@ -1,3 +1,5 @@
+
+
 // elementlarni chaqirib olish
 
 const moviesList = document.querySelector(".movies-list");
@@ -208,13 +210,33 @@ moviesList.addEventListener("click", function (evt) {
 let markedMoviesArr = [];
 
 
-
 let markMovie = function (movie) {
     if (!markedMoviesArr.includes(movie)) {
         markedMoviesArr.push(movie);
     } else if (markedMoviesArr.includes(movie)) {
         markedMoviesArr.splice(markedMoviesArr.indexOf(movie), 1);
     }
+}
+
+const renderMarkedMovie = () => {
+    
+    markedMoviesList.innerHTML = "";
+
+    markedMoviesArr.forEach((movie, index) => {
+
+        const markedMovieItem = createElement("li", "card p-3 mb-2 marked-movie-item");
+
+        const markedMovieTitle = createElement("h3", "card-title h5 mb-2 marked-movies-title", movie.title);
+        const markedItemBtn = createElement("button", "btn btn-danger btn-sm d-inline marked-item-btn", "Remove");
+        markedItemBtn.value = index;
+        markedItemBtn.style = "width: fit-content"
+
+        console.log(markedItemBtn)
+        markedMoviesList.append(markedMovieItem);
+        markedMovieItem.append(markedMovieTitle, markedItemBtn);
+        
+        
+    });
 }
 
 
@@ -224,37 +246,14 @@ let markMovie = function (movie) {
 moviesList.addEventListener("click", function (evt) {
 
     if (evt.target.matches(".bookmark-btn")) {
-        
 
-        
         let movieImdbId = evt.target.closest(".movies-item").dataset.imdbId;
 
         let foundMovie = normalizedMovies.find(function (movie) {
             return movie.imdbId === movieImdbId;
         })
         markMovie(foundMovie);
-        console.log(markedMoviesArr);
-
-        markedMoviesList.innerHTML = "";
-
-
-        markedMoviesArr.forEach((movie) => {
-
-
-
-            const markedMovieItem = createElement("li", "card p-3 mb-2 marked-movie-item");
-            
-            const markedMovieTitle = createElement("h3", "card-title h5 mb-2 marked-movies-title", movie.title);
-            const markedItemBtn = createElement("button", "btn btn-danger btn-sm d-inline marked-item-btn", "Remove");
-            markedItemBtn.style = "width: fit-content"
-
-            console.log(markedMovieItem)
-            markedMoviesList.append(markedMovieItem);
-            markedMovieItem.append(markedMovieTitle, markedItemBtn);
-
-        });
-
-
+        renderMarkedMovie();
 
     }
 });
@@ -262,17 +261,12 @@ moviesList.addEventListener("click", function (evt) {
 
 
 
+markedMoviesList.addEventListener("click", function(evt) {
+    if (evt.target.localName == "button") {
+        let buttonIndex = Number(evt.target.value);
 
+        markedMoviesArr.splice(buttonIndex, 1)
+        renderMarkedMovie();
+    }
+})
 
-// markedMoviesList.addEventListener("click", function(evt) {
-//     if (evt.target.matches(".marked-item-btn")) {
-//         let movieImdbId = evt.target.closest(".marked-movie-item").dataset.imdbId;
-
-//         let foundMovie = markedMoviesArr.find(function (movie) {
-//             return movie.imdbId === movieImdbId;
-
-//         });
-//         markMovie(foundMovie);
-
-//     }
-// })
